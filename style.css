@@ -1,0 +1,259 @@
+/*------------------------------------------------------------------
+
+1. HTML
+    1.1. General styling
+    1.2. General text styling
+2. Nav
+    2.1. Menu div -> icon styling
+    2.2. Menu Bar animation
+    2.3. Menu styling
+    2.4. Menu text -> a styling
+3. Header
+    3.1. Header styling
+    3.2. Square + image styling
+    3.3. Text styling
+4. Main
+    4.1. Main Styling
+    4.2. Main -> headers styling
+    4.3. Main -> text styling
+    4.4. Main -> underline styling
+5. Back to top
+    5.1. Arrow styling
+    5.2. Arrow:hover
+    5.3. Arrow animation
+
+-------------------------------------------------------------------*/
+
+/*------ 1. HTML ------*/
+/*1.1. General styling*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    background-color: #EFEFEC;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*1.2. General text styling*/
+h1 {
+    font-size: 10rem;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+h3 {
+    font-size: 3.5rem;
+}
+
+/*------ 2. Nav ------*/
+/*2.1. Menu div -> icon styling*/
+.menu-bars{
+    position: fixed;
+    top: 3.5%;
+    right: 6%;
+    cursor: pointer;
+    display: inline-block;
+    z-index: 3;
+}
+.bar1, .bar2, .bar3{
+    position: relative;
+    width: 5vw;
+    height: 7px;
+    background-color: grey;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/*2.2. Menu Bar animation*/
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+/*2.3. Menu styling*/
+.menu {
+    height: 0;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #c5d5cb;
+    /*background-color: rgb(0,0,0);*/
+    /*background-color: rgba(0,0,0, 0.9);*/
+    overflow: hidden;
+    transition: 0.5s;
+    z-index: 2;
+}
+
+
+.menu-content{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/*2.4. Menu text -> a styling*/
+.menu a {
+    text-transform: lowercase;
+    padding: 2rem;
+    text-decoration: none;
+    font-size: 8rem;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/*------ 3. Header ------*/
+/*3.1. Header styling*/
+header {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    z-index: 1;
+
+    animation: headerDisappear 1s linear infinite;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -2s);
+}
+
+/*3.2. square styling*/
+#square {
+    background-color: #c5d5cb;
+    height: 50%;
+    position: relative;
+    top: 15%;
+}
+
+header img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 60%;
+}
+/*3.3. Text styling*/
+header hgroup{
+    text-align: center;
+    white-space: nowrap;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes headerDisappear{
+    to{
+        opacity: 0;
+    }
+}
+
+/*------ 4. Main ------*/
+/*4.1. Main Styling*/
+main {
+    height: 100%;
+    background-color: #e3e0cf;
+    margin-top: 100vh;
+    position: relative;
+    z-index: 4;
+}
+
+/*4.2. Main -> headers styling*/
+main h1 {
+    margin-top: 10%;
+    font-size: 8rem;
+    text-align: center;
+    overflow-wrap: normal;
+    text-transform: uppercase;
+}
+main h1 span::after {
+    content: '\A';
+    white-space: pre;
+}
+
+/*4.3. Main -> paragraph styling*/
+main p,ul {
+    margin-top: 10%;
+    margin-left: 14%;
+    margin-right: 14%;
+    font-size: 4.5rem;
+    word-wrap: normal;
+    line-height: 7.5rem;
+    text-align: center;
+}
+main ul {
+    text-align: left;
+}
+main ul span{
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+/*4.4. Main -> underline styling*/
+main hr{
+    border-top: 2px solid black;
+    margin-top: 3.5%;
+    margin-left: 13%;
+    margin-right: 13%;
+}
+
+/*------ 5. Back to top ------*/
+/*5.1. Arrow styling*/
+#arrow {
+    width: 80px;
+    height: 80px;
+    border: 4px solid grey;
+    position: fixed;
+    bottom: 5%;
+    right: 6%;
+    border-radius: 100%;
+    color: grey;
+    font-size: 4rem;
+    font-weight: 50;
+    text-align: center;
+    text-shadow: 0 -20px 0 grey, 0 -40px 0 grey;
+    overflow: hidden;
+    transition: 0.2s ease ;
+    z-index: 5;
+}
+
+/*5.2. Arrow:hover*/
+#arrow:hover {
+    color: #CACAB3;
+    text-shadow: 0 -20px 0 #CACAB3, 0 -40px 0 #CACAB3;
+    width: 83px;
+    height: 83px;
+    border-color: #CACAB3;
+    cursor: pointer;
+}
+
+/*5.3. Arrow animation*/
+.fa-chevron-up {
+    animation: arrow 1.4s infinite linear;
+}
+@keyframes arrow {
+    0%{transform: translateY(80px);}
+    50%{transform: translateY(0px);}
+    100%{transform: translateY(-80px);}
+}
+
